@@ -28,11 +28,11 @@ Project File Date:  10/20/2023
 *** Using Compiler 'V6.19', folder: 'C:\Program Files\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
 assembling add64.s...
+assembling datainit_ctboard.s...
+assembling startup_ctboard.s...
 compiling hal_pwr.c...
 compiling hal_fmc.c...
 compiling system_ctboard.c...
-assembling datainit_ctboard.s...
-assembling startup_ctboard.s...
 compiling hal_rcc.c...
 compiling hal_gpio.c...
 linking...
@@ -60,13 +60,13 @@ Package Vendor: InES
 <h2>Collection of Component Files used:</h2>
 
    * Component: InES::Device:Startup:4.0.4
+      Source file:   Device/Source/datainit_ctboard.s
+      Include file:  Device/Include/m0/platform_ctboard.h
       Include file:  Device/Include/reg_stm32f4xx.h
       Include file:  Device/Include/reg_ctboard.h
-      Source file:   Device/Source/startup_ctboard.s
-      Source file:   Device/Source/datainit_ctboard.s
-      Include file:  Device/Include/system_ctboard.h
       Source file:   Device/Source/system_ctboard.c
-      Include file:  Device/Include/m0/platform_ctboard.h
+      Source file:   Device/Source/startup_ctboard.s
+      Include file:  Device/Include/system_ctboard.h
 
    * Component: InES::HAL:FMC:4.0.4
       Include file:  Device/Include/reg_stm32f4xx.h
@@ -76,21 +76,21 @@ Package Vendor: InES
 
    * Component: InES::HAL:GPIO:4.0.4
       Include file:  HAL/Include/hal_common.h
-      Source file:   HAL/Source/hal_gpio.c
       Include file:  HAL/Include/hal_gpio.h
       Include file:  Device/Include/reg_stm32f4xx.h
+      Source file:   HAL/Source/hal_gpio.c
 
    * Component: InES::HAL:PWR:4.0.4
-      Include file:  Device/Include/reg_stm32f4xx.h
       Include file:  HAL/Include/hal_common.h
+      Include file:  Device/Include/reg_stm32f4xx.h
       Source file:   HAL/Source/hal_pwr.c
       Include file:  HAL/Include/hal_pwr.h
 
    * Component: InES::HAL:RCC:4.0.4
-      Include file:  HAL/Include/hal_rcc.h
-      Include file:  HAL/Include/hal_common.h
-      Source file:   HAL/Source/hal_rcc.c
       Include file:  Device/Include/reg_stm32f4xx.h
+      Include file:  HAL/Include/hal_common.h
+      Include file:  HAL/Include/hal_rcc.h
+      Source file:   HAL/Source/hal_rcc.c
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
