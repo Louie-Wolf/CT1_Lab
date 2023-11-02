@@ -107,8 +107,44 @@ rest	ADDS	R4, R3, R0					;Real number in binary
 		LDR		R7, =ADDR_7_SEG_BIN_DS3_0
 		STRH	R5, [R7]
 
+		LSLS	R4, #24						;shift binary number into top byte to use as carry bit
+		MOVS	R3, #0xFF					;disco bar in R3
+		MOVS	R5, #0						;index in R5
+		
+bar_loop
+		CMP		R5, #8
+		BEQ		bar_loop_end
+		LSLS	R4, #1						;shift highest bit into carry
+		BCS		bit_is_zero
+		LSRS	R3, #1		;decrease if not set
+bit_is_zero
+		ADDS 	R5,#1
+		B		bar_loop
+		
+bar_loop_end
 
-
+		LSLS	R4, R3, #16		;store for disco lights, copy from low to high
+		ORRS	R3, R4
+		
+		
+		;disco lights
+		
+		MOVS	R0,#0 ; index
+		
+loop_s
+		CMP		R0, #32
+		BEQ		loop_end
+		
+		MOVS 	R4,#1
+		RORS	R3, R4 ;disco right shift 1
+		
+		LDR		R7, =ADDR_LED_31_16
+		STRH	R3, [R7]
+		BL		pause
+		
+		ADDS	R0, #1
+		B		loop_s
+loop_end
 ; END: To be programmed
 
         B       main
