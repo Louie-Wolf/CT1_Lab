@@ -45,7 +45,6 @@ jump_table      ; ordered table containing the labels of all cases
 						DCD		case_nand	;8
 						DCD		case_nor	;9
 						DCD		case_xnor	;A
-						DCD		case_bright	;B
                 ; END: To be programmed
     
 
