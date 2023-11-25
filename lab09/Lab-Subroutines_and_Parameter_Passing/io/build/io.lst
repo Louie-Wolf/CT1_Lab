@@ -1,0 +1,72 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             myCode, CODE, READONLY
+    2 00000000         
+    3 00000000                 THUMB
+    4 00000000         
+    5 00000000         out_word
+                               PROC                         ;void out_word(uint
+                                                            32_t out_address, u
+                                                            int32_t out_value);
+                                                            
+    6 00000000                 EXPORT           out_word
+    7 00000000         
+    8 00000000 6001            STR              R1,[R0]
+    9 00000002 4770            BX               LR
+   10 00000004         
+   11 00000004                 ENDP
+   12 00000004         
+   13 00000004         in_word PROC                         ;uint32_t in_word(u
+                                                            int32_t in_address)
+                                                            ;
+   14 00000004                 EXPORT           in_word
+   15 00000004         
+   16 00000004 6800            LDR              R0, [R0]
+   17 00000006 4770            BX               LR
+   18 00000008                 ENDP
+   19 00000008         
+   20 00000008                 ALIGN
+   21 00000008                 END
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M0 --depe
+nd=.\build\io.d -o.\build\io.o -I.\RTE\_Target_1 -IC:\Users\louie\AppData\Local
+\Arm\Packs\InES\CTBoard14_DFP\4.0.4\Device\Include -IC:\Users\louie\AppData\Loc
+al\Arm\Packs\InES\CTBoard14_DFP\4.0.4\Device\Include\m0 -IC:\Users\louie\AppDat
+a\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.4\HAL\Include --predefine="__EVAL SETA
+ 1" --predefine="__UVISION_VERSION SETA 538" --predefine="_RTE_ SETA 1" --prede
+fine="_RTE_ SETA 1" --list=.\build\io.lst app\io.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+in_word 00000004
+
+Symbol: in_word
+   Definitions
+      At line 13 in file app\io.s
+   Uses
+      At line 14 in file app\io.s
+Comment: in_word used once
+myCode 00000000
+
+Symbol: myCode
+   Definitions
+      At line 1 in file app\io.s
+   Uses
+      None
+Comment: myCode unused
+out_word 00000000
+
+Symbol: out_word
+   Definitions
+      At line 5 in file app\io.s
+   Uses
+      At line 6 in file app\io.s
+Comment: out_word used once
+3 symbols
+336 symbols in table
